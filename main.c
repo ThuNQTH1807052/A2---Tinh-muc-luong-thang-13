@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     int soNamKinhNghiem, soNamCongHien;
@@ -7,7 +8,7 @@ int main() {
     printf("Vui long nhap so nam lam viec: ");
     scanf("%d", &soNamCongHien);
 
-    int mucluong;
+    int mucluong = 0;
     if (soNamKinhNghiem < 2){
         mucluong = 10;
     }
