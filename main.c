@@ -2,49 +2,43 @@
 #include <stdlib.h>
 
 int main() {
-    int soNamKinhNghiem, soNamCongHien;
+    char choice;
+    do{
+    int soNamKinhNghiem, soNamLamViec;
     printf("Vui long nhap so nam kinh nghiem: ");
     scanf("%d", &soNamKinhNghiem);
     printf("Vui long nhap so nam lam viec: ");
-    scanf("%d", &soNamCongHien);
+    scanf("%d", &soNamLamViec);
 
     int mucluong = 0;
+    float heso =0 ;
+    float thuongThang13 = 0;
     if (soNamKinhNghiem < 2){
         mucluong = 10;
     }
-    if (soNamKinhNghiem >= 2 && soNamCongHien < 5){
+    if (soNamKinhNghiem >= 2 && soNamLamViec <= 5){
         mucluong = 20;
-    }
-    if (soNamKinhNghiem > 5){
+    } else{
         mucluong = 30;
     }
-    if (soNamCongHien < 1){
-        printf("Muc thuong thang 13 cua ban la: %2.f trieu", (float) mucluong * 0.3);
-    }
-    if (soNamCongHien >= 1 && soNamCongHien < 2){
-        printf("Muc thuong thang 13 cua ban la: %2.f trieu", (float) mucluong / 2);
-    }
-    if (soNamCongHien >= 2 && soNamCongHien <= 5){
-        printf("Muc thuong thang 13 cua ban la: %d trieu", mucluong);
-    }
-    if (soNamCongHien > 5){
-        printf("Muc thuong thang 13 cua ban la: %d trieu", mucluong * 2);
-    }
 
-    printf("\nAn n/N de thoat chuong trinh.\n");
-    char choice;
-    scanf("%c", &choice);
-    getchar();
-    switch (choice){
-        case 'N' :
-            printf("Ban da thoat chuong trinh. Hen gap lai!");
-            break;
-        case 'n' :
-            printf("Ban da thoat chuong trinh. Hen gap lai!");
-            break;
-        default :
-            printf("Phim ban nhap khong hop le");
-            break;
+    if (soNamLamViec < 1){
+        heso = 0.3;
     }
+    if (soNamLamViec >= 1 && soNamLamViec < 2){
+        heso = 0.5;
+    }
+    if (soNamLamViec >= 2 && soNamLamViec <= 5){
+        heso = 1;
+    } else {
+        heso = 2;
+    }
+    thuongThang13 = mucluong * heso;
+    printf("Muc thuong thang 13 cua ban la %2.f\n", thuongThang13);
+    printf("\nAn n/N de thoat chuong trinh.\n");
+    getchar();
+    scanf("%c", &choice);
+        }
+    while (choice != 'n' && choice != 'N');
     return 0;
 }
